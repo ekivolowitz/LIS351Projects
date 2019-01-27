@@ -13,7 +13,6 @@
                 for(i in keys) {
                     let count = counts[keys[i]];
                     let unit = "&#42";
-                    console.log(unit.repeat(10));
                     str += keys[i] + " " + unit.repeat(count) + "<br>";
                 }
                 document.getElementById("hist").innerHTML = str;
