@@ -7,8 +7,6 @@
             <script>
                 let counts = JSON.parse('{{ counts | tojson }}');
                 let keys = JSON.parse('{{ keys | tojson }}');
-                console.log(counts);
-                console.log(keys);
                 let str = "";
                 for(i in keys) {
                     let count = counts[keys[i]];
