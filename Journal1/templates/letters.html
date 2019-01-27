@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+        {% block body %}
+        <div id="data">
+                <p id="hist">Histogram goes here</p>
+            <script>
+                let counts = JSON.parse('{{ counts | tojson }}');
+                let keys = JSON.parse('{{ keys | tojson }}');
+                console.log(counts);
+                console.log(keys);
+                let str = "";
+                for(i in keys) {
+                    let count = counts[keys[i]];
+                    let unit = "&#42";
+                    console.log(unit.repeat(10));
+                    str += keys[i] + " " + unit.repeat(count) + "<br>";
+                }
+                document.getElementById("hist").innerHTML = str;
+            </script>
+        </div>
+        {% endblock %}
+
+        
+</body>
+</html>
