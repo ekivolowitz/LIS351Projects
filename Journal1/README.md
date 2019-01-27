@@ -1,4 +1,6 @@
 # Journal 1
+### URL
+The URL for the source code of this project is available here: https://github.com/ekivolowitz/LIS351Projects/tree/master/Journal1
 ### Assignment Writeup
 #### Intentions
 My intentions for this project were to create a webpage that allows you to upload any ASCII encoded file and returns a histogram of the characters used in that file. 
@@ -15,7 +17,10 @@ This is a test file to test really cool things
 Histogram from that file
 ![Histogram from that file](https://github.com/ekivolowitz/LIS351Projects/blob/master/imgs/Journal1_hist.png)
 #### Approach
-I have tinkered with several backend technologies, and one that I wanted to play around with again was Flask. I decided to whip together a quick little backend that accepts file input, which I've never handled before. Between Flask and HTML5, all of the complicated parts were taken care of (yay). I used to write some HTML back in High School when I first got interested in computers. Although I've never taken the time to become an expert on it, I can usually hack together what I have in mind. CSS sucks, I just wanted to throw that out there. Anyway, I've written some javascript in my day, although I'm not a big fan of it. I was going to use D3js to create the histogram, but decided against it in the name of brevity, and implemented a pure ASCII form instead - topical to our readings. 
+I have tinkered with several backend technologies, and one that I wanted to play around with again was Flask. I decided to whip together a quick little backend that accepts file input, which I've never handled before. Between Flask and HTML5, all of the complicated parts were taken care of (yay). I used to write some HTML back in High School when I first got interested in computers. Although I've never taken the time to become an expert on it, I can usually hack together what I have in mind. CSS sucks, I just wanted to throw that out there. Anyway, I've written some javascript in my day, although I'm not a big fan of it. I was going to use D3js to create the histogram, but decided against it in the name of brevity, and implemented a pure ASCII form instead - topical to our readings.
+
+#### Thoughts on the results
+While this isn't a very complicated project, it's always exciting to take something from an idea to a reality, which I did. I'm happy with the results, although I wish that there were better print formatting options with pure HTML, like the `printf` function in C so that the output would be a little cleaner.
 
 ### Dependencies
 * [python3](https://www.python.org/download/releases/3.0/)
