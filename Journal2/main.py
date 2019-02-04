@@ -6,7 +6,7 @@ import os
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
-@app.route("/letters", methods=["POST"])
+@app.route("/size", methods=["POST"])
 def letters():
     if request.method == 'POST':
         if 'myFile' not in request.files:
@@ -16,16 +16,12 @@ def letters():
         file.save(filename)
 
         with open(filename, 'r') as f:
-            chars = {}
-            for char in f.read():
-                if not char.isalpha():
-                    continue
-                char = char.lower()
-                if char in chars.keys():
-                    chars[char] += 1
-                else:
-                    chars[char] = 1
-            return render_template("letters.html", counts = chars, keys = sorted(list(chars.keys())))
+            stats = os.stat(filename)
+            kb = stats.st_size / (2 ** 10)
+            mb = stats.st_size / (2 ** 20)
+            gb = stats.st_size / (2 ** 30)
+            tb = stats.st_size / (2 ** 40)
+            return render_template("letters.html", size=stats.st_size, kb=kb, mb=mb, gb=gb, tb=tb)
 
     return render_template("index.html")
 @app.route("/")
