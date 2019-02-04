@@ -36,7 +36,4 @@ Now navigate to `localhost:5000` in your favorite web browser and use the letter
 Note: The program only supports ASCII encoded files.
 
 ### References
-* [Flask Documentation](http://flask.pocoo.org/)
-* [Flask File Upload Example](http://flask.pocoo.org/docs/1.0/patterns/fileuploads/)
-* [ASCII Table](https://www.ascii.cl/htmlcodes.htm)
-
+* [Journal 1](https://github.com/ekivolowitz/LIS351Projects/tree/master/Journal1)
