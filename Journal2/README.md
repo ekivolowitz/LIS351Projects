@@ -1,4 +1,4 @@
-# Journal 1
+# Journal 2
 ### URL
 The URL for the source code of this project is available here: https://github.com/ekivolowitz/LIS351Projects/tree/master/Journal2
 ### Assignment Writeup
@@ -32,8 +32,5 @@ size math really easy to do, and is very smart.
 $ python3 main.py
 ```
 Now navigate to `localhost:5000` in your favorite web browser and use the letter counting program!
-
-Note: The program only supports ASCII encoded files.
-
 ### References
 * [Journal 1](https://github.com/ekivolowitz/LIS351Projects/tree/master/Journal1)
