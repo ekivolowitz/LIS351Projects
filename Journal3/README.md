@@ -8,12 +8,14 @@ having it interact with a webpage.
 #### Input Work Done
 The input work done is this subdirectory of the repository.
 #### Output Results
-Login Screen with a good actor, from the table of users.
+
+Login Screen with a good actor, from the table of users, and user's login screen.
 ![File selected from landing page](https://github.com/ekivolowitz/LIS351Projects/blob/master/imgs/GoodActor.png)
-Logged in User
 ![Returned data from that file](https://github.com/ekivolowitz/LIS351Projects/blob/master/imgs/Home.png)
+
 Log in as any valid user without their password
 ![Log in as any valid user without their password](https://github.com/ekivolowitz/LIS351Projects/blob/master/imgs/Home.png)
+
 #### Approach
 It is common for web developers to not use [Prepared Statements](https://en.wikipedia.org/wiki/Prepared_statement) when crafting SQL queries. This means that you can inject your own SQL code, if you'd like. For example,
 ```sql
@@ -42,4 +44,4 @@ $ python3 main.py
 Now navigate to `localhost:5000` in your favorite web browser and use the letter counting program!
 ### References
 * [Journal 1](https://github.com/ekivolowitz/LIS351Projects/tree/master/Journal1)
-* [Flask sql documentation] (http://flask.pocoo.org/docs/1.0/patterns/sqlite3/)
+* [Flask sql documentation](http://flask.pocoo.org/docs/1.0/patterns/sqlite3)
