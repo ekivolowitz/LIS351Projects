@@ -31,7 +31,7 @@ You will have the statement
 ```sql
 SELECT COUNT(*) FROM USERS WHERE username='" + username + "' AND pwd='' OR 1=1-- + "'
 ```
-This essentially says, select user where username is the supplied username, and where the password is `''` OR WHEREVER `1=1`, which is always true. This is essentially a golden key to access any account on this site. 
+This essentially says, select user where username is the supplied username, and where the password is `''` OR WHEREVER `1=1`, which is always true. Then the `--` tells sqlite to ignore the rest of the query as it is commented out. This is a golden key to access any account on this site. 
 
 #### Thoughts on the results
 This was a fun little project because there is the space where programmers make intended functionality, and the space where they made functionality that they didn't intend for.
