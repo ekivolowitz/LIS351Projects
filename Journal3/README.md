@@ -1,4 +1,4 @@
-# Journal 2
+# Journal 3
 ### URL
 The URL for the source code of this project is available here: https://github.com/ekivolowitz/LIS351Projects/tree/master/Journal3
 ### Assignment Writeup
