@@ -14,7 +14,9 @@ Login Screen with a good actor, from the table of users, and user's login screen
 ![Returned data from that file](https://github.com/ekivolowitz/LIS351Projects/blob/master/imgs/Home.png)
 
 Log in as any valid user without their password
-![Log in as any valid user without their password](https://github.com/ekivolowitz/LIS351Projects/blob/master/imgs/Home.png)
+![Log in as any valid user without their password](https://github.com/ekivolowitz/LIS351Projects/blob/master/imgs/injection.png)
+![Returned data from that file](https://github.com/ekivolowitz/LIS351Projects/blob/master/imgs/Home.png)
+
 
 #### Approach
 It is common for web developers to not use [Prepared Statements](https://en.wikipedia.org/wiki/Prepared_statement) when crafting SQL queries. This means that you can inject your own SQL code, if you'd like. For example,
