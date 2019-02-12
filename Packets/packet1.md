@@ -22,3 +22,12 @@ are then suggested, thus, item to item recommendation.
 11. That color would be primarily red, but a lighter tone probably skewing more towards a pink.
 12. They would be able to zero in on your identity by querying all students that have taken LIS351 in the spring of 2019, who are in a certain section, who have scored the exact score provided in the class data.
 13. There are magnetic discs called platters, a needle head, an arm, and a rotor to spin the discs at a certain speed.
+## Part 2
+1. `rockhopper-01.cs.wisc.edu` IP address: 128.105.37.191, Public IP Address: 128.105.37.255. `rockhopper-02.cs.wisc.edu` IP address: 128.105.37.192, Public IP Address 128.105.37.255
+I found that the IPs are similar except for the least significant placeholder, the 191 and 192. Also both the Public IP Addresses are the same. This doesn't surprise me because I would expect that all the machines in a lab would be tied to some sort of switch, which we are seeing the public IP for. No number is higher than 255 either.
+2. `ISLAB18m` Private IP address: 128.104.96.68, Public IP address: 128.104.97.255
+`rockhopper-01.cs.wisc.edu` Private IP Address: 128.105.37.191, Public IP Address: 128.105.37.255
+No number is higher than 255. The Private IPs are both different, which makes sense as they're on different parts of campus,  receiving different DHCP leases. The Public IPs both end in 255 as well.
+3. I think that I got these results because the computers are not linked on the same switch, or going through the same router, or tied to the same upstream link. 
+4. All 9 of the first results are me, so 100%.
+5. You could use a google hack, like `site: facebook.com "Evan Kivolowitz"`
