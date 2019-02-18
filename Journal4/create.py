@@ -23,7 +23,7 @@
 # 02/17/2019  Evan Kivolowitz      1     Created prototype of project.
 #
 ######################################################################
-import argparse
+import argparse, textwrap
 import os
 import constants
 import sys
@@ -76,7 +76,7 @@ def createREADME(args):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument("project")
     parser.add_argument("language")
     parser.add_argument("--flask", action="store_true", help=constants.FLASK_HELP)

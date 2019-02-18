@@ -60,25 +60,25 @@ FILE_HEADER = """
 """
 
 SUPPORTED_FILE_HELP = """
-    Main file that will be created. Note that only Python is currently supported.
-    
-    Default:
+Main file that will be created. Note that only Python is currently supported.\n
 
-        *.py    :           <project>.py
-        *.html  :           <project>.html
-                            <project>.css
-                            <project>.js
-        *.c     :           <project>.c 
+Default:
+*.py    :        <project>.py
+*.html  :        <project>.html
+                 <project>.css
+                 <project>.js
+*.c     :        <project>.c 
 """
 
 FLASK_HELP = "Is this project using flask? Only works when language is python."
 
 PURPOSE_HELP = """
-    Purpose of program that will be placed in --file
+Purpose of program that will be placed in --file
 
-    Default:
+Default:
 
-        Project created without default. Will decide what to put here later.
+    Project created without default. Will decide what to put here later.
+    
 """
 AUTHOR_HELP = """
     Author of program.
