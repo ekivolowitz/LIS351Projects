@@ -1,14 +1,14 @@
 
 ######################################################################
-# Project           : Journal4
+# Project           : Journal5
 #
-# Program name      : create.py
+# Program name      : Journal5.py 
 #
 # Author            : Evan Kivolowitz
 #
-# Date created      : 02/17/2019
+# Date created      : 02/19/2019
 #
-# Purpose           : Project to create other LIS351 journal templates.
+# Purpose           : Project to create other LIS351 journal templates -- with dates.
 #
 # Credit            :
 #
@@ -20,7 +20,7 @@
 # Revision History  :
 #
 # Date        Author              Ref    Revision 
-# 02/17/2019  Evan Kivolowitz      1     Created prototype of project.
+# 02/19/2019  Evan Kivolowitz      1     Created prototype of project.
 #
 ######################################################################
 import argparse
