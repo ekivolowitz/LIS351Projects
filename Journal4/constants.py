@@ -103,3 +103,7 @@ $ python3 {}
 USAGE_FLASK = """
 Now navigate to `localhost:5000` in your favorite web browser!
 """
+
+DATES = """
+Journal name and main file will be named in accordance to the highest date less than the current date.
+"""
