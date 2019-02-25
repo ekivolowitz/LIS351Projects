@@ -31,3 +31,29 @@ No number is higher than 255. The Private IPs are both different, which makes se
 3. I think that I got these results because the computers are not linked on the same switch, or going through the same router, or tied to the same upstream link. 
 4. All 9 of the first results are me, so 100%.
 5. You could use a google hack, like `site: facebook.com "Evan Kivolowitz"`
+
+## Part 3
+### What do I have inside my home that is worth protecting?
+Things that I would like to protect
+* Clothes
+* Computer equipment
+* Phone
+* Headphones
+* Tablet
+* Books
+* TV
+
+These answers were derived in terms of things that are somewhat expensive and how often they are used. Clothes and computers are then obviously at the top.
+### Who do I want to protect it from?
+Certain objects I protect more than others. For example, I'm ok with my friends borrowing my clothes, TV, or books, but not my computer, iPad, or headphones. I would categorize who I want to protect my possessions from into three categories.
+* Family
+* Friends
+* Not Friends or Family
+Each category gains stricter protections. I would lend anything to my family should they ask for it, some things to my friends, and nothing to people I do not know.
+### How bad are the consequences if I fail?
+If I fail to protect my possessions, the consequences could be very bad. In the worst case, I could lose them entirely. Equally as bad, a bad actor could destroy my possessions.
+### How likely is it that I will need to protect it?
+I take preventative measures which reduces the likelihood that I will need to protect my possessions. For example, my door is always locked. I don't leave my possessions in public places without me being with it.
+### How much trouble am I willing to go through to try to prevent potential consequences?
+As mentioned in the previous question, I make small amounts of effort concentrated in the right ways to ensure that I won't have trouble come up in the future. Should someone steal a non serialized object (clothes, books, or headphones), I would see if I could get footage of them being stolen. Should a higher value, serialized object be stolen, I would go the cops with my information about where I last saw the item, its unique identifying information (MAC address, Serial Number, etc.) which I have all backed up elsewhere.
+
