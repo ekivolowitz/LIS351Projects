@@ -8,7 +8,7 @@
 #
 # Date created      : 02/19/2019
 #
-# Purpose           : Project to create other LIS351 journal templates -- with dates.
+# Purpose           : Modification of Journal4 per Bryan's feedback from the grading. This has a flag set so that you can auto create Journal names and default files based on the date.
 #
 # Credit            :
 #
@@ -16,6 +16,8 @@
 #
 # Docstring template                     https://www.phusewiki.org/wiki/index.php?title=Program_Header
 # Template creation                      https://github.com/ekivolowitz/LIS351Projects/tree/master/Journal4/ 
+# ArgParse Documentation                 https://docs.python.org/3/howto/argparse.html
+# DateTime Documentation                 https://docs.python.org/3/library/datetime.html
 #
 # Revision History  :
 #
