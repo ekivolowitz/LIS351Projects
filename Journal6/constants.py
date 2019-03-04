@@ -100,7 +100,7 @@ DEPENDENCY_PYTHON = "* [python3](https://www.python.org/download/releases/3.0/)\
 DEPENDENCY_FLASK = "* [Flask](http://flask.pocoo.org/)\n"
 USAGE_PYTHON = """
 ```bash
-$ python3 {}
+$ python3 {}.py language [--project] [--flask] [--auto] [--file] [--purpose] [--author] [--URL]
 ```
 """
 USAGE_FLASK = """
