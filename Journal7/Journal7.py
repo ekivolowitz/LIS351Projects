@@ -6,7 +6,7 @@
 #
 # Author            : Evan Kivolowitz
 #
-# Date created      : 03/05/2019
+# Date created      : 03/07/2019
 #
 # Purpose           : To make searching for information easier.
 #
@@ -23,7 +23,6 @@
 # 03/07/2019  Author      1     Initial work.
 #
 ######################################################################
-from pymongo import MongoClient
 import constants
 import secrets
 import requests
@@ -32,10 +31,6 @@ import argparse
 import sys
 from termcolor import colored
 from bs4 import BeautifulSoup
-
-client = MongoClient('localhost', 27017)
-db = client.lis
-collection = db['words']
 
 ERROR = 'red'
 UPDATE = 'yellow'
@@ -89,22 +84,21 @@ def buildReturnLine(line, search_term):
                 data += colored(word + " ", UPDATE)
         return data
     return None
-def handleInsert(search_term, course):
+
+def run(search_term, course):
     course_id = course['id']
     assignments = getAssignments(course_id)
     if assignments is None:
         print("ERROR: Assignments is None")
         return
     assignments = assignments.json()
-    results = []
-
     for assignment in assignments:
         try:
             soup = BeautifulSoup(assignment['description'], 'html.parser')
         except:
             continue
         text = soup.get_text().split("\n")
-        links = soup.find_all("a")
+        # links = soup.find_all("a")
 
         printed = False
 
@@ -129,4 +123,4 @@ if __name__ == "__main__":
         sys.exit(1)
     course = selectCourse(courses)
 
-    handleInsert(args.search_term, course)
+    run(args.search_term, course)
