@@ -21,3 +21,23 @@
 5.
 Refer to number 2. The schema of the `Pets` table enforces the foreign key relationship.
  
+## Part 3
+Unfortunately I couldn't make it to class that week, so I did the activity on my own. Here is one of the complex data type tables for my noun, school. I used the Departments table
+
+![Departments](../imgs/packet2/part3.png)
+
+Creating schemas is a difficult task. There is no right or wrong way to do anything, but there are better and worse ways to do it. For this course, we are using Relational Databases, but how would our projects change if we were to use a NoSQL solution? While it would probably be easier for us to create individual datapoints in our tables with NoSQL, what would we be trading off? The rigidity of Relation Databases is sometimes annoying, but it feels like a necessary evil. If you want your DB to be maintainable, to be performant, and usable, the rigidity, while annoying at times, is what allows for that. 
+
+Looking back, I would like to try mapping out my several tables into a document based solution in MongoDB. I think that it would've been easier to use for this project, but if we were to apply this project at scale, more difficult.
+
+## Part 4
+I found it interesting that the majority of people opted not to use online tools to make the diagrams, rather they opted to hand draw them and then upload a picture. Seven out of the ten responses I viewed drew them by hand. I was surprised about the layout and design of the tables. The majority of the tables follow a very similar design, one parent table with two child tables composing of fields. This makes me wonder if that's the best way of diagramming each set of interactions, or if it is the most obvious way of diagramming it. 
+
+## Part 5
+1. I would like to research Ethereum
+2. I would like to track the cost of Ethereum in USD and transaction data in recent blocks.
+3. One address can be a part of many transcations. A transaction can have many payers and many payees. 
+4. One smart contract can be tied to one address.
+5. Tables:
+|Transaction ID|Sender|Receiver|Amount|
+|Block ID|Transaction ID|
