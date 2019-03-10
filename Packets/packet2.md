@@ -34,7 +34,7 @@ Looking back, I would like to try mapping out my several tables into a document 
 I found it interesting that the majority of people opted not to use online tools to make the diagrams, rather they opted to hand draw them and then upload a picture. Seven out of the ten responses I viewed drew them by hand. I was surprised about the layout and design of the tables. The majority of the tables follow a very similar design, one parent table with two child tables composing of fields. This makes me wonder if that's the best way of diagramming each set of interactions, or if it is the most obvious way of diagramming it. 
 
 ## Part 5
-1. I would like to research Ethereum
+1. I would like to research Ethereum.
 2. I would like to track the cost of Ethereum in USD and transaction data in recent blocks.
 3. One address can be a part of many transcations. A transaction can have many payers and many payees. 
 4. One smart contract can be tied to one address.
@@ -51,3 +51,7 @@ I found it interesting that the majority of people opted not to use online tools
 
 |Smart Contract Account Address|Binary ABI|Author|
 |---|---|---|
+
+6. 
+
+7.
