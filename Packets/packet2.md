@@ -39,5 +39,15 @@ I found it interesting that the majority of people opted not to use online tools
 3. One address can be a part of many transcations. A transaction can have many payers and many payees. 
 4. One smart contract can be tied to one address.
 5. Tables:
+
 |Transaction ID|Sender|Receiver|Amount|
+|--------------|------|--------|------|
+
 |Block ID|Transaction ID|
+|--------|--------------|
+
+|Account Address|IsWallet|
+|--|--|
+
+|Smart Contract Account Address|Binary ABI|Author|
+|---|---|---|
