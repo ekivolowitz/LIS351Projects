@@ -6,13 +6,18 @@
 4. `Primary Key` is a unique identifier of an entry into a database table, while a `Foreign Key` is a secondary identifier of the primary key object in another table. A junction table is the result of joining two tables together, mapping primary keys to foreign keys to concatenate data correctly.
 ## Part 2
 1. Students Table
+
 ![Student Schema](../imgs/packet2/StudentsSchema.png)
+
 2.
 ![Pets Schema](../imgs/packet2/PetsSchema.png)
+
 3.
 ![Student Data](../imgs/packet2/StudentsData.png)
+
 4.
 ![Pets Data](../imgs/packet2/DogData.png)
+
 5.
 Refer to number 2. The schema of the `Pets` table enforces the foreign key relationship.
  
