@@ -52,6 +52,9 @@ I found it interesting that the majority of people opted not to use online tools
 |Smart Contract Account Address|Binary ABI|Author|
 |---|---|---|
 
-6. 
+6. Here is a representation of the tables
+
+![Tables](../imgs/packet2/EthTables.png)
+
 
 7.
