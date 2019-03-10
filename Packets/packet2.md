@@ -46,8 +46,8 @@ I found it interesting that the majority of people opted not to use online tools
 |Block ID|Transaction ID|
 |--------|--------------|
 
-|Account Address|IsWallet|
-|--|--|
+|Account Address|IsWallet|Balance|
+|--|--|--|
 
 |Smart Contract Account Address|Binary ABI|Author|
 |---|---|---|
