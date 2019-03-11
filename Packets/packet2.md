@@ -54,7 +54,7 @@ I found it interesting that the majority of people opted not to use online tools
 
 6. Here is a representation of the tables
 
-![Tables](https://github.com/ekivolowitz/LIS351Projects/tree/master/imgs/packet2/EthTables.png)
+![Tables](../imgs/packet2/EthTables.png)
 
 
 7.
