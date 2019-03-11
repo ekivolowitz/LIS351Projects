@@ -7,16 +7,16 @@
 ## Part 2
 1. Students Table
 
-![Student Schema](../imgs/packet2/StudentsSchema.png)
+![Student Schema](https://github.com/ekivolowitz/LIS351Projects/tree/master/imgs/packet2/StudentsSchema.png)
 
 2.
-![Pets Schema](../imgs/packet2/PetsSchema.png)
+![Pets Schema](https://github.com/ekivolowitz/LIS351Projects/tree/master/imgs/packet2/PetsSchema.png)
 
 3.
-![Student Data](../imgs/packet2/StudentsData.png)
+![Student Data](https://github.com/ekivolowitz/LIS351Projects/tree/master/imgs/packet2/StudentsData.png)
 
 4.
-![Pets Data](../imgs/packet2/DogData.png)
+![Pets Data](https://github.com/ekivolowitz/LIS351Projects/tree/master/imgs/packet2/DogData.png)
 
 5.
 Refer to number 2. The schema of the `Pets` table enforces the foreign key relationship.
@@ -24,7 +24,7 @@ Refer to number 2. The schema of the `Pets` table enforces the foreign key relat
 ## Part 3
 Unfortunately I couldn't make it to class that week, so I did the activity on my own. Here is one of the complex data type tables for my noun, school. I used the Departments table
 
-![Departments](../imgs/packet2/part3.png)
+![Departments](https://github.com/ekivolowitz/LIS351Projects/tree/master/imgs/packet2/part3.png)
 
 Creating schemas is a difficult task. There is no right or wrong way to do anything, but there are better and worse ways to do it. For this course, we are using Relational Databases, but how would our projects change if we were to use a NoSQL solution? While it would probably be easier for us to create individual datapoints in our tables with NoSQL, what would we be trading off? The rigidity of Relation Databases is sometimes annoying, but it feels like a necessary evil. If you want your DB to be maintainable, to be performant, and usable, the rigidity, while annoying at times, is what allows for that. 
 
@@ -54,11 +54,11 @@ I found it interesting that the majority of people opted not to use online tools
 
 6. Here is a representation of the tables
 
-![Tables](../imgs/packet2/EthTables.png)
+![Tables](https://github.com/ekivolowitz/LIS351Projects/tree/master/imgs/packet2/EthTables.png)
 
 
 7.
-![Account Address](../imgs/packet2/AccountAddress.png)
-![Blocks](../imgs/packet2/Blocks.png)
-![SmartContractAccount](../imgs/packet2/SmartContractAccount.png)
-![Transactions](../imgs/packet2/Transactions.png)
+![Account Address](https://github.com/ekivolowitz/LIS351Projects/tree/master/imgs/packet2/AccountAddress.png)
+![Blocks](https://github.com/ekivolowitz/LIS351Projects/tree/master/packet2/Blocks.png)
+![SmartContractAccount](https://github.com/ekivolowitz/LIS351Projects/tree/master/imgs/packet2/SmartContractAccount.png)
+![Transactions](https://github.com/ekivolowitz/LIS351Projects/tree/master/imgs/packet2/Transactions.png)
