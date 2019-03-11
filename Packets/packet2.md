@@ -58,3 +58,7 @@ I found it interesting that the majority of people opted not to use online tools
 
 
 7.
+![Account Address](../imgs/packet2/AccountAddress.png)
+![Blocks](../imgs/packet2/Blocks.png)
+![SmartContractAccount](../imgs/packet2/SmartContractAccount.png)
+![Transactions](../imgs/packet2/Transactions.png)
