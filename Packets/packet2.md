@@ -58,7 +58,7 @@ I found it interesting that the majority of people opted not to use online tools
 
 
 7.
-![Account Address](https://github.com/ekivolowitz/LIS351Projects/tree/master/imgs/packet2/AccountAddress.png)
+![Account Address](https://github.com/ekivolowitz/LIS351Projects/tree/master/imgs/packet2/AccountAddress.png "picture)
 ![Blocks](https://github.com/ekivolowitz/LIS351Projects/tree/master/packet2/Blocks.png)
 ![SmartContractAccount](https://github.com/ekivolowitz/LIS351Projects/tree/master/imgs/packet2/SmartContractAccount.png)
 ![Transactions](https://github.com/ekivolowitz/LIS351Projects/tree/master/imgs/packet2/Transactions.png)
