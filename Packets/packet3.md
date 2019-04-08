@@ -34,11 +34,19 @@ li {
 }
 ```
 # Part 2
-* [part 1](LIS351Packet3/p2_1.png)
-* [part 2](LIS351Packet3/p2_2.png)
-* [part 3](LIS351Packet3/p2_3.png)
-* [part 4](LIS351Packet3/part2_4.png)
-* [part 5](LIS351Packet3/p2_5.png)
+* ![part 1](LIS351Packet3/p2_1.PNG)
+
+
+* ![part 2](LIS351Packet3/p2_2.PNG)
+
+
+* ![part 3](LIS351Packet3/p2_3.PNG)
+
+
+* ![part 4](/Packets/LIS351Packet3/part2_4.PNG)
+
+
+* ![part 5](LIS351Packet3/p2_5.PNG)
 # Part 3
 The HTML validator was very eye opening in how much the browser will fill in for you. For example, the browser will automatically render incomplete tags (tags opened but not closed), tell you errors about why images aren't loading, etc, that we take for granted. The flexibility of a modern web browser is astounding in that in can handle so many different file types, application types (web, mobile android, mobile iOS) etc. Looking back, I will
 always use a validator with my HTML because it's such an easy tool to run. This will lead
@@ -58,5 +66,15 @@ These would tie together because you would have a homepage with random accounts 
 I would talk about how Ethereum is a future form of computing, and that we should all understand it. If they are interested in a price evaluation, go to the price page. If they want to see accounts, go to the accounts page, or if they want to see a specific account, go to the specific account page. 
 5. The colorscheme will be a light gray / white color, with some blues mixed in and black text. 
 
+6. 
 
+![part 6](ethereum_test_page.PNG)
 
+7.
+I don't yet have a database, but whenever a user searches for an account or price, I'll write to the database.
+I'll then have a tab that will display cached information in the database, and give the option to explore new data with
+the Search bar and accounts dropdown menu.
+
+I will be using SQLite instead of Access.
+
+8. I will not be using Access, instead I will be using Flask to serve data fetched from a SQLite database to the front end.
