@@ -31,7 +31,6 @@ def expand_path(path):
     
 if __name__ == '__main__':
     jsonFile = expand_path("~") + "/.s3sync.json"
-    print(jsonFile)
     if not os.path.isfile(jsonFile):
         print("Please create ~/.s3sync.json")
         exit(1)
