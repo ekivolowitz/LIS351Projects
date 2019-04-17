@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block left_content %}
+<h1>Lefthand side</h1>
+{% endblock %}
+{% block right_content %}
+<h3>Account balance: {{ value }} ETH.</h3>
+<div style="overflow-x:auto; overflow-y:auto; height: 600px">
+    <table class="table table-hover">
+            <thead>
+                <td style="text-align: center; margin: 0 auto;"><h3><strong>Transactions</strong></h3></td>
+                <tr>
+                    <td style="text-align: left"><h5>Tx Hash</h5></td>
+                    <td style="text-align: left"><h5>Block</h5></td>
+                    <td style="text-align: left"><h5>Timestamp</h5></td>
+                    <td style="text-align: left"><h5>From</h5></td>
+                    <td style="text-align: left"><h5>To</h5></td>
+                    <td style="text-align: left"><h5>Amount</h5></td>
+                    <td style="text-align: left"><h5>Fee</h5></td>
+                </tr>
+            </thead>
+            <tbody>
+            {% for item in transactions %}
+                <tr>
+                {% for key,value in item.items() %}
+                    {% if key == "TransactionHash" %}
+                        <td><a href="/transaction/{{value}}">{{ value|truncate(8)}}</a></td>
+                    {% elif key == "From" %}
+                        <td><a href="/account/{{value}}">{{ value|truncate(8) }}</a></td>    
+                    {% elif key == "To" %}
+                        <td><a href="/account/{{value}}">{{ value|truncate(8) }}</a></td>
+                    {% elif key == "Block" %}
+                        <td><a href="/block/{{value}}">{{value}}</a></td>
+                    {% else %}
+                        <td>{{ value }}</td>
+                    {% endif %}
+                {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+
+            
+
+    </table>
+</div>
+
+{% endblock %}

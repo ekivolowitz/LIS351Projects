@@ -1,7 +1,37 @@
 {% extends 'base.html' %}
 {% block left_content %}
-    <img class="main_img" src="{{ url_for('static', filename='ETHEREUM-ICON_Black_small.png') }}" alt="Ethereum logo"/>
+    <img class="main_img" src="{{ url_for('static', filename='ETHEREUM-ICON_Black_small.png') }}" style="width: 100%;" alt="Ethereum logo"/>
 {% endblock %}
 {% block right_content %}
+<h2>What is Ethereum?</h2><br/>
+<p>
+Ethereum is described as Ethereum is a decentralized platform that runs smart contracts: 
+applications that run exactly as programmed without any possibility of downtime, censorship, fraud or third-party interference.
+</p>
+<h2>How Does it Work?</h2>
+<p>
+At a very high level, Ethereum is an application of Blockchain, a Distributed Ledger Technology.
+Blockchain allows for a network of nodes receiving transactions from eachother, and validating them.
+When a transaction is validated on one node, it's sent to other nodes for validation.
+Thus, Blockchain allows for a decentralized form of trust that doesn't rely on a single third party entity.
+</p>
+<h2>How is This Different Than Bitcoin?</h2>
+<p>
+By How Does it Work section alone, there is no difference between Ethereum and Bitcoin.
+In reality there are many differences. 
+To me the biggest difference is the concept of a smart contract.
+Code can be written to the Blockchain, and can be executed by anyone.
+That code is ran on each node, producing the same results everywhere, which turns
+the Ethereum Blockchain into the world's largest, most distributed computer ever.
+</p>
+<h2>Why I chose This Topic</h2>
+<p>
+I've been interested in cryptocurrencies for a while.
+I have always wanted to create my own Ethereum Explorer like <a href="https://etherscan.io">etherscan.io</a>,
+but have never had a real reason to. I've built this site as I go. 
+Initially, no database was needed. 
+Now I'm storing data in a database to cache the information so I don't need to look it up everytime. 
+I haven't encountered any issues as I have some web experience already, and know quite a bit of python, which I used to make a webserver.
 
+</p>
 {% endblock %}
