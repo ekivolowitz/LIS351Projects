@@ -22,7 +22,7 @@
 # 04/10/2019  Evan Kivolowitz      1     Initial work.
 #
 ######################################################################
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import json
 from pprint import pprint
 import os
@@ -68,7 +68,13 @@ def handlePrice():
 #              'txreceipt_status': '',
 #              'value': '25953280000000000'}
 
-@app.route("/account/<account>")
+@app.route("/search/<type>")
+def handleView(type):
+    if type not in ["Block", "Account", "Transaction"]:
+        return redirect("")
+    return render_template("search.html", searchType=type)
+
+@app.route("/address/<account>")
 def handleAccount(account):
     accountData = EthApi.getEthForAccount(account)
     transactions = EthApi.getTxForAccount(account)

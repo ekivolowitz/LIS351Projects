@@ -38,6 +38,9 @@ width: 50%;
         padding-right: 25px;
         padding-left: 10px;
     }
+    .submitButton {
+        visibility: visible;
+    }
 }
 
 .line {
@@ -68,15 +71,24 @@ width: 50%;
     clear: both;
 }
 @media screen and (min-width: 601px) {
-
     .left {
 
         padding-left: 20px;
-        padding-right: 10px;
+        padding-right: 20px;
     }
     .right {
         padding-right: 20px;
-        padding-left: 10px;
+        padding-left: 20px;
+    }
+    .center {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .submitButton {
+        visibility: hidden;
     }
 }
 html, body {

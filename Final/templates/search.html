@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block left_content %}
+<img class="main_img" src="{{ url_for('static', filename='ETHEREUM-ICON_Black_small.png') }}" style="width: 100%;"
+    alt="Ethereum logo" />
+{% endblock %}
+{% block right_content %}
+<div>
+    {% if searchType == "Account" %}
+    <h3 style="text-align: left">Search for an Account with an Account Address</h3>
+    {% elif searchType == "Transaction" %}
+    <h3 style="text-align: left">Search for a Transaction with a Transaction Hash</h3>
+    {% elif searchType == "Block" %}
+    <h3 style="text-align: left">Search for a block with a Block Number</h3>
+    {% endif %}
+
+
+
+
+    <script>
+        function process() {
+            var searchType = "{{ searchType }}";
+            switch (searchType) {
+                case "Account":
+                    searchType = "address";
+                    break;
+                case "Transaction":
+                    searchType = "tx";
+                    break;
+                case "Block":
+                    searchType = "block";
+                    break;
+            }
+            var url = "/" + searchType + "/" + document.getElementById("searchText").value;
+            location.href = url;
+            return false;
+        }
+    </script>
+    <form class="form-inline md-form mr-auto mb-4" onSubmit="return process();">
+        <input id="searchText" class="form-control mr-sm-2" style="width: 95%" type="text"
+            placeholder="{{ searchType }}" aria-label="Search">
+        <button id="submitButton" class="submitButton btn blue-gradient btn-rounded btn-sm my-0"
+            type="submit">Submit</button>
+    </form>
+
+
+
+
+
+    </script>
+</div>
+{% endblock %}
