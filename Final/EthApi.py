@@ -18,3 +18,11 @@ def getTxForAccount(address):
     request = requests.get("http://api.etherscan.io/api?module=account&action=txlist&address={}&startblock=0&endblock=99999999&sort=asc&apikey={}".format(address, AUTH_TOKEN))
     pprint(request.json())
     return request.json()['result']
+def getBlockByNumber(number):
+    request = requests.get("https://api.etherscan.io/api?module=proxy&action=eth_getBlockByNumber&tag={}&boolean=true&apikey={}".format(hex(number), AUTH_TOKEN))
+    pprint(request.json())
+    return request.json()['result']
+def getTransactionByHash(hash):
+    request = requests.get("https://api.etherscan.io/api?module=proxy&action=eth_getTransactionByHash&txhash={}&apikey={}".format(hash, AUTH_TOKEN))
+    pprint(request.json())
+    return request.json()['result']

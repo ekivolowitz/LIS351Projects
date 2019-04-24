@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block left_content %}
+<h1>Lefthand side</h1>
+{% endblock %}
+{% block right_content %}
+<div style="overflow-x:auto; overflow-y:auto; height: 600px">
+    <h3 style="text-align: center"><a href="/transaction/{{ hash }}">{{ hash|truncate(20) }}</a> Data</h3>
+    <table class="table table-hover">
+            <thead>   
+                <tr>
+                    <td style="text-align: center"><h5>Key</h5></td>
+                    <td style="text-align: center"><h5>Value</h5></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Receiver</td>
+                    <td><a href="/address/{{ receiver }}">{{ receiver }}</a></td>
+                </tr>
+                <tr>
+                    <td>Sender</td>
+                    <td><a href="/address/{{ sender }}">{{ sender }}</a></td>
+                </tr>
+                <tr>
+                    <td>Block Number</td>
+                    <td><a href="/block/{{ blockNumber }}">{{ blockNumber }}</a></td>
+                </tr>
+                <tr>
+                    <td>Gas</td>
+                    <td>{{ gas }} Eth</td>
+                </tr>
+                <tr>
+                    <td>Amount</td>
+                    <td>{{ amount }} Eth.</td>
+                </tr>
+            </tbody>
+
+            
+
+    </table>
+</div>
+{% endblock %}

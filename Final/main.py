@@ -31,6 +31,7 @@ import sqlite3
 import datetime
 import DB_Api
 import time
+import struct 
 app = Flask(__name__)
 
 
@@ -47,27 +48,8 @@ def handlePrice():
     marketcap = float(price) * float(volume)
     return render_template("price.html", price=price, historical=rows, volume=volume, marketcap=marketcap)
 #### End Price
-#### Begin account
 
-#  'result': [{'blockHash': '0x4570a2e290c3d9d4f18ec64b1f3a7323c4b9d787acbfe63568ba62540999f320',
-#              'blockNumber': '3868472',
-#              'confirmations': '3712917',
-#              'contractAddress': '',
-#              'cumulativeGasUsed': '1352016',
-#              'from': '0x79b47ec077b468ba1110c588b9d324c0e34d97b7',
-#              'gas': '90000',
-#              'gasPrice': '21000000010',
-#              'gasUsed': '21000',
-#              'hash': '0x647084493986c27d2bd89ff325801aa9bc64a76beedcbcae73fab71fcfbfb146',
-#              'input': '0x',
-#              'isError': '0',
-#              'nonce': '0',
-#              'timeStamp': '1497394664',
-#              'to': '0x8f215bf78d61d45b0d2055dcd60e7c37651ce0ab',
-#              'transactionIndex': '15',
-#              'txreceipt_status': '',
-#              'value': '25953280000000000'}
-
+#### Searching Methods
 @app.route("/search/<type>")
 def handleView(type):
     if type not in ["Block", "Account", "Transaction"]:
@@ -88,13 +70,32 @@ def handleAccount(account):
         txEntry['From'] = tx['from']
         txEntry['To'] = tx['to']
         txEntry['Amount'] = int(tx['value']) / EthApi.WEI_ETH_CONVERSION
-        txEntry['Fee'] = int(tx['gasUsed'])
+        txEntry['Fee'] = int(tx['gasUsed']) / EthApi.WEI_ETH_CONVERSION
         txTableData.append(txEntry)
-
-
-
-
     return render_template("account.html", value=accountData, transactions=txTableData)
+
+    
+@app.route("/block/<int:number>")
+def handleBlock(number):
+    blockData = EthApi.getBlockByNumber(number)
+    blockTableData = {}
+    miner = blockData['miner']
+    hash = blockData['hash']
+    gasUsed = int(blockData['gasUsed'], 0) / EthApi.WEI_ETH_CONVERSION
+    transactions = {}
+    for tx in blockData['transactions']:
+        transactions[tx['hash']] = float.fromhex(tx['value']) / EthApi.WEI_ETH_CONVERSION
+    return render_template("block.html", miner=miner, hash=hash, gas=gasUsed,transactions=transactions)
+@app.route("/transaction/<hash>")
+def handleTransaction(hash):
+    data = EthApi.getTransactionByHash(hash)
+    receiver = data['to']
+    sender = data['from']
+    blockNumber = int(data['blockNumber'], 0)
+    gas = int(data['gas'], 0) / EthApi.WEI_ETH_CONVERSION
+    amount = int(data['value'], 0) / EthApi.WEI_ETH_CONVERSION
+    return render_template("transaction.html", hash=hash, receiver=receiver, sender=sender, blockNumber=blockNumber,gas=gas, amount=amount)
+#### End searching
 
 @app.route("/")
 def home():
