@@ -59,20 +59,45 @@ def handleView(type):
 @app.route("/address/<account>")
 def handleAccount(account):
     accountData = EthApi.getEthForAccount(account)
-    transactions = EthApi.getTxForAccount(account)
 
-    txTableData = []
-    for tx in transactions:
-        txEntry = {}
-        txEntry['TransactionHash'] = tx['hash']
-        txEntry['Block'] = tx['blockNumber']
-        txEntry['Timestamp'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(int(tx['timeStamp'])))
-        txEntry['From'] = tx['from']
-        txEntry['To'] = tx['to']
-        txEntry['Amount'] = int(tx['value']) / EthApi.WEI_ETH_CONVERSION
-        txEntry['Fee'] = int(tx['gasUsed']) / EthApi.WEI_ETH_CONVERSION
-        txTableData.append(txEntry)
-    return render_template("account.html", value=accountData, transactions=txTableData)
+    with sqlite3.connect("./app.db") as con:
+        curr = con.cursor()
+        curr.execute("SELECT Address,Balance FROM ACCOUNTS WHERE Address = (?)", (account,))
+        result = curr.fetchall()
+        if len(result) == 0:
+            curr.execute("INSERT INTO ACCOUNTS VALUES (?, ?)", (account, accountData))
+            curr.commit()
+        elif len(result) == 1:
+            if accountData != result[0][1]:
+                curr.execute("UPDATE ACCOUNTS SET Balance = (?) WHERE Address = (?)", (result[1], result[0]))
+        else:
+            print("You should not have more than one entry per account. Here is the account {}".format(account))
+    with sqlite3.connect("./app.db") as con:
+        txTableData = []
+        transactions = EthApi.getTxForAccount(account)
+        for tx in transactions:
+            curr = con.cursor()
+            curr.execute("SELECT count(*) FROM TRANSACTIONS WHERE Hash = (?)", (tx['hash'], ))
+            result = curr.fetchone()
+            insert = False
+            if result[0] == 0:
+                insert = True
+            txEntry = {}
+            txEntry['TransactionHash'] = tx['hash']
+            txEntry['Block'] = tx['blockNumber']
+            txEntry['Timestamp'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(int(tx['timeStamp'])))
+            txEntry['From'] = tx['from']
+            txEntry['To'] = tx['to']
+            txEntry['Amount'] = int(tx['value']) / EthApi.WEI_ETH_CONVERSION
+            txEntry['Fee'] = int(tx['gasUsed']) / EthApi.WEI_ETH_CONVERSION
+            txTableData.append(txEntry)
+            if insert:
+                con.execute("INSERT INTO TRANSACTIONS (Hash, Block, ts, FromAccount, ToAccount, Amount, Fee) values \
+                    (?, ?, ?, ?, ?, ?, ?)", (txEntry['TransactionHash'], txEntry['Block'], txEntry['Timestamp'], txEntry['From'], txEntry['To'], txEntry['Amount'], txEntry['Fee']))
+                con.commit()
+        con.commit()
+
+        return render_template("account.html", value=accountData, transactions=txTableData)
 
     
 @app.route("/block/<int:number>")
