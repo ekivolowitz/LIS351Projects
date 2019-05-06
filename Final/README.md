@@ -1,4 +1,7 @@
 # LIS351 Final
+In the `docker build` step, it will copy the code from the current working directory into the container. 
+The reason I had to do this is because I didn't want *my* API key to be public on the github.
+I apologize that that forces you the reader to do some legwork. 
 ## Prereqs
 1. Create an account with [Etherscan](https://etherscan.io/register).
 2. Navigate to [Etherscan's api page and create an access key](https://etherscan.io/myapikey).
@@ -41,8 +44,6 @@ In order to run the project, your directory should be structured like so:
 docker build -t flaskapp .
 docker run -it -p 0.0.0.0:5000:5000 flaskapp
 ```
-In the `docker build` step, it will copy the code from the current working directory into the container. 
-The reason I had to do this is because I didn't want *my* API key to be public on the github.
-I apologize that that forces you the reader to do some legwork. 
+
 ## Accessing
 Navigate to your favorite web browser and open `localhost:5000`.
