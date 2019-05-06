@@ -8,6 +8,7 @@ Click on "Create a new API-KEY token".
 ```python3
 AUTH_TOKEN = "<your api token from etherscan.io"
 ```
+Note that your API key *should* be inbetween quotes as it is a string.
 
 In order to run the project, your directory should be structured like so:
 ```
