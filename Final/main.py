@@ -66,10 +66,10 @@ def handleAccount(account):
         result = curr.fetchall()
         if len(result) == 0:
             curr.execute("INSERT INTO ACCOUNTS VALUES (?, ?)", (account, accountData))
-            curr.commit()
         elif len(result) == 1:
             if accountData != result[0][1]:
                 curr.execute("UPDATE ACCOUNTS SET Balance = (?) WHERE Address = (?)", (result[1], result[0]))
+                con.commit()
         else:
             print("You should not have more than one entry per account. Here is the account {}".format(account))
     with sqlite3.connect("./app.db") as con:
