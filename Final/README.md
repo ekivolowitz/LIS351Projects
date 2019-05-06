@@ -1,7 +1,7 @@
 # LIS351 Final
 ## Building and Running
 ```bash
-docker build -it flaskapp .
+docker build -t flaskapp .
 docker run -it -p 0.0.0.0:5000:5000 flaskapp
 ```
 ## Accessing
