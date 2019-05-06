@@ -1,0 +1,10 @@
+FROM ubuntu:18.04
+RUN apt-get update && apt-get install -y \
+    python3.6 \
+    sqlite3 \
+    python3-pip \
+    && pip3 install Flask && pip3 install pysqlite3 && pip3 install requests
+COPY . /app
+WORKDIR /app
+EXPOSE 5000
+CMD python3 main.py
