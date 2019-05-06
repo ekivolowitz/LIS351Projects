@@ -59,7 +59,9 @@ def handleView(type):
 @app.route("/address/<account>")
 def handleAccount(account):
     accountData = EthApi.getEthForAccount(account)
-
+    txTableData = []
+    cachedFrom = []
+    cachedTo = []
     with sqlite3.connect("./app.db") as con:
         curr = con.cursor()
         curr.execute("SELECT Address,Balance FROM ACCOUNTS WHERE Address = (?)", (account,))
@@ -72,8 +74,8 @@ def handleAccount(account):
                 con.commit()
         else:
             print("You should not have more than one entry per account. Here is the account {}".format(account))
+    
     with sqlite3.connect("./app.db") as con:
-        txTableData = []
         transactions = EthApi.getTxForAccount(account)
         for tx in transactions:
             curr = con.cursor()
@@ -96,8 +98,36 @@ def handleAccount(account):
                     (?, ?, ?, ?, ?, ?, ?)", (txEntry['TransactionHash'], txEntry['Block'], txEntry['Timestamp'], txEntry['From'], txEntry['To'], txEntry['Amount'], txEntry['Fee']))
                 con.commit()
         con.commit()
-
-        return render_template("account.html", value=accountData, transactions=txTableData)
+    with sqlite3.connect("./app.db") as con:
+            curr = con.cursor()
+            curr.execute("SELECT * FROM TRANSACTIONS WHERE FromAccount = (?)", (account,))
+            result = curr.fetchall()
+            print("From account")
+            if len(result) > 0:
+                for elem in result:
+                    txEntry = {}
+                    txEntry['TransactionHash'] = elem[0]
+                    txEntry['Block'] = elem[1]
+                    txEntry['Timestamp'] = elem[2]
+                    txEntry['From'] = elem[3]
+                    txEntry['To'] = elem[4]
+                    txEntry['Amount'] = elem[5] 
+                    txEntry['Fee'] = elem[6]
+                    cachedFrom.append(txEntry)
+            curr.execute("SELECT * FROM TRANSACTIONS WHERE ToAccount = (?)", (account,))
+            result = curr.fetchall()
+            if len(result) > 0:
+                for elem in result:
+                    txEntry = {}
+                    txEntry['TransactionHash'] = elem[0]
+                    txEntry['Block'] = elem[1]
+                    txEntry['Timestamp'] = elem[2]
+                    txEntry['From'] = elem[3]
+                    txEntry['To'] = elem[4]
+                    txEntry['Amount'] = elem[5] 
+                    txEntry['Fee'] = elem[6]
+                    cachedTo.append(txEntry)    
+    return render_template("account.html", value=accountData, transactions=txTableData, cachedFrom=cachedFrom, cachedTo=cachedTo)
 
     
 @app.route("/block/<int:number>")

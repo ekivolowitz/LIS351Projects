@@ -1,18 +1,96 @@
 {% extends 'base.html' %}
 {% block left_content %}
-<h1>Lefthand side</h1>
+<h3 style="text-align: center"><strong>Stored Data</strong></h3>
+
+
+<div style="overflow-x:auto; overflow-y:auto; height: 600px">
+    <h3 style="text-align: center"><strong>Transactions where account is the receiver</strong></h3>
+    <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td style="text-align: center"><h5>Tx Hash</h5></td>
+                    <td style="text-align: center"><h5>Block</h5></td>
+                    <td style="text-align: center"><h5>Timestamp</h5></td>
+                    <td style="text-align: center"><h5>From</h5></td>
+                    <td style="text-align: center"><h5>To</h5></td>
+                    <td style="text-align: center"><h5>Amount</h5></td>
+                    <td style="text-align: center"><h5>Fee</h5></td>
+                </tr>
+            </thead>
+            <tbody>
+            {% for item in cachedTo %}
+                <tr>
+                {% for key,value in item.items() %}
+                    {% if key == "TransactionHash" %}
+                        <td><a href="/transaction/{{value}}">{{ value|truncate(8)}}</a></td>
+                    {% elif key == "From" %}
+                        <td><a href="/address/{{value}}">{{ value|truncate(8) }}</a></td>    
+                    {% elif key == "To" %}
+                        <td><a href="/address/{{value}}">{{ value|truncate(8) }}</a></td>
+                    {% elif key == "Block" %}
+                        <td><a href="/block/{{value}}">{{value}}</a></td>
+                    {% else %}
+                        <td>{{ value }}</td>
+                    {% endif %}
+                {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+
+            
+
+    </table>
+    <h3 style="text-align: center"><strong>Transactions where account is the sender</strong></h3>
+    <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td style="text-align: center"><h5>Tx Hash</h5></td>
+                    <td style="text-align: center"><h5>Block</h5></td>
+                    <td style="text-align: center"><h5>Timestamp</h5></td>
+                    <td style="text-align: center"><h5>From</h5></td>
+                    <td style="text-align: center"><h5>To</h5></td>
+                    <td style="text-align: center"><h5>Amount</h5></td>
+                    <td style="text-align: center"><h5>Fee</h5></td>
+                </tr>
+            </thead>
+            <tbody>
+            {% for item in cachedFrom %}
+                <tr>
+                {% for key,value in item.items() %}
+                    {% if key == "TransactionHash" %}
+                        <td><a href="/transaction/{{value}}">{{ value|truncate(8)}}</a></td>
+                    {% elif key == "From" %}
+                        <td><a href="/address/{{value}}">{{ value|truncate(8) }}</a></td>    
+                    {% elif key == "To" %}
+                        <td><a href="/address/{{value}}">{{ value|truncate(8) }}</a></td>
+                    {% elif key == "Block" %}
+                        <td><a href="/block/{{value}}">{{value}}</a></td>
+                    {% else %}
+                        <td>{{ value }}</td>
+                    {% endif %}
+                {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+
+            
+
+    </table>
+
+</div>
 {% endblock %}
+
+
 {% block right_content %}
-<h3 style="text-align: center"><strong>About</strong></h3>
+<h3 style="text-align: center"><strong>Live Data</strong></h3>
 <table class="table table-hover">
     <tr>
         <td style="text-align: center">Account Balance</td>
         <td style="text-align: center">{{ value }} ETH</td>
     </tr>
 </table>
-
 <div style="overflow-x:auto; overflow-y:auto; height: 600px">
-    <h3 style="text-align: center"><strong>Transactions</strong></h3>
+    <h3 style="text-align: center"><strong>All Transactions Ascending on Timestamp</strong></h3>
     <table class="table table-hover">
             <thead>
                 <tr>
