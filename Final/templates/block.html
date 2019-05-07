@@ -1,29 +1,177 @@
 {% extends 'base.html' %}
 {% block left_content %}
-<h3>Left from block!</h3>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td style="text-align: center">
+                <h5>Field</h5>
+            </td>
+            <td style="text-align: center">
+                <h5>Operator</h5>
+            </td>
+            <td style="text-align: center">
+                <h5>Value</h5>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <div class="dropdown">
+                    <button id="buttonVal1" class="btn btn-primary dropdown-toggle" type="button"
+                        data-toggle="dropdown">SELECT FIELD
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="setButton('BlockNo', '1'); return false;">BlockNo</a></li>
+                        <li><a href="#" onclick="setButton('Index in Block', '1'); return false;">Index in Block</a>
+                        </li>
+                        <li><a href="#" onclick="setButton('Amount', '1'); return false;">Amount</a></li>
+                    </ul>
+                </div>
+            </td>
+            <td>
+                <div class="dropdown">
+                    <button id="buttonVal2" class="btn btn-primary dropdown-toggle" type="button"
+                        data-toggle="dropdown">Operator
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="setButton('&gt;', '2'); return false;">&gt;</a></li>
+                        <li><a href="#" onclick="setButton('&lt', '2'); return false;">&lt;</a></li>
+                        <li><a href="#" onclick="setButton('=', '2'); return false;">=</a></li>
+                    </ul>
+                </div>
+            </td>
+            <td>
+                <input  id="inputField1"class="form-control" id="myInput" type="text" placeholder="Search..">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <div class="dropdown">
+                    <button id="buttonVal3" class="btn btn-primary dropdown-toggle" type="button"
+                        data-toggle="dropdown">Connector
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="setButton('and', '3'); return false;">and</a></li>
+                        <li><a href="#" onclick="setButton('or', '3'); return false;">or</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="dropdown">
+                    <button id="buttonVal4" class="btn btn-primary dropdown-toggle" type="button"
+                        data-toggle="dropdown">SELECT FIELD
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="setButton('BlockNo', '4'); return false;">BlockNo</a></li>
+                        <li><a href="#" onclick="setButton('Index in Block', '4'); return false;">Index in Block</a>
+                        </li>
+                        <li><a href="#" onclick="setButton('Amount', '4'); return false;">Amount</a></li>
+                    </ul>
+                </div>
+            </td>
+            <td>
+                <div class="dropdown">
+                    <button id="buttonVal5" class="btn btn-primary dropdown-toggle" type="button"
+                        data-toggle="dropdown">Operator
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="setButton('&gt;', '5'); return false;">&gt;</a></li>
+                        <li><a href="#" onclick="setButton('&lt;', '5'); return false;">&lt;</a></li>
+                        <li><a href="#" onclick="setButton('=', '5'); return false;">=</a></li>
+                    </ul>
+                </div>
+            </td>
+            <td>
+                <input id="inputField2" class="form-control" id="myInput" type="text" placeholder="Search..">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" onclick="UpdateTable()">Go</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<script>
+    //https://stackoverflow.com/questions/1070760/javascript-function-in-href-vs-onclick
+    function setButton(text, button) {
+        document.getElementById("buttonVal" + button).textContent = text;
+    }
+
+    function swapOps(op) {
+        switch(op) {
+            case "&lt;":
+                return "<";
+            case "&gt;":
+                return ">";
+            case "=":
+                return "=";
+            default:
+                return "Operator";
+        }
+    }
+
+    function UpdateTable() {
+        // //make an ajax call and get status value using the same 'id'
+        var field1 = document.getElementById("buttonVal1").innerHTML;
+        var operator1 = swapOps(document.getElementById("buttonVal2").innerHTML);
+        var value1 = document.getElementById("inputField1").value;
+        var connector = document.getElementById("buttonVal3").innerHTML;
+        var field2 = document.getElementById("buttonVal4").innerHTML;
+        var operator2 = swapOps(document.getElementById("buttonVal5").innerHTML);
+        var value2 = document.getElementById("inputField2").value;
+
+        // alert(field1 + " " + operator1 + " " + value1 + " " + connector + " " + field2 + " " + operator2 + " " + value2);
+        if(field1.includes("SELECT FIELD") || operator1.includes("Operator") || value1 == "" || connector.includes("Connector") || field2.includes("SELECT FIELD") || operator2.includes("Operator") || value2 == "") {
+            alert("Must select all fields.");
+            location.reload();
+        }
+        console.log(operator1);
+        $.ajax({
+
+            type: "POST",//or POST
+            url: '/getData',
+            //  (or whatever your url is)
+            data: { "f1": field1 , "op1" : operator1, "v1" : value1, "con" : connector, "f2" : field2, "op2" : operator2, "v2" : value2},
+            //can send multipledata like {data1:var1,data2:var2,data3:var3
+            //can use dataType:'text/html' or 'json' if response type expected 
+            success: function (responsedata) {
+                // process on data
+                console.log("got response as " + "'" + responsedata + "'");
+            }
+        })
+
+    }
+</script>
 {% endblock %}
 {% block right_content %}
-<h3>Account balance: {{ value }} ETH.</h3>
 <div style="overflow-x:auto; overflow-y:auto; height: 600px">
     <h3 style="text-align: center"><strong>Transactions</strong></h3>
     <table class="table table-hover">
-            <thead>
-                
-                <tr>
-                    <td style="text-align: center"><h5>Tx Hash</h5></td>
-                    <td style="text-align: center"><h5>Amount</h5></td>
-                </tr>
-            </thead>
-            <tbody>
-            {% for item in transactions %}
-                <tr>
-                        <td><a href="/transaction/{{item}}">{{ item|truncate(20)}}</a></td>
-                        <td>{{ transactions[item] }} Eth</td>
-                </tr>
-            {% endfor %}
-            </tbody>
+        <thead>
 
-            
+            <tr>
+                <td style="text-align: center">
+                    <h5>Tx Hash</h5>
+                </td>
+                <td style="text-align: center">
+                    <h5>Amount</h5>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in transactions %}
+            <tr>
+                <td><a href="/transaction/{{item}}">{{ item|truncate(20)}}</a></td>
+                <td>{{ transactions[item] }} Eth</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+
 
     </table>
 </div>
