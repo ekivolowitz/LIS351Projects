@@ -9,7 +9,7 @@ Click on "Create a new API-KEY token".
 3. Clone this [github repository](https://github.com/ekivolowitz/LIS351Projects).
 4. `cd` into `LIS351Projects/Final` and create a file called `secrets.py`. The contents should look like the following:
 ```python3
-AUTH_TOKEN = "<your api token from etherscan.io"
+AUTH_TOKEN = "<your api token from etherscan.io>"
 ```
 Note that your API key *should* be inbetween quotes as it is a string.
 
@@ -56,3 +56,6 @@ Here is the schema fetched from the sqlite3 database:
 ![schema](schema.PNG)
 ## Accessing
 Navigate to your favorite web browser and open `localhost:5000`.
+
+Assuming that you have created the `secrets.py` file, you should be able to run the docker container.
+I tested it on my Windows desktop, Mac laptop, and Linux (ubuntu 16.04) VM and it ran in all of them. 
