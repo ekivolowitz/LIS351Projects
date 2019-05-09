@@ -2,9 +2,10 @@
 {% block left_content %}
 <h3 style="text-align: center"><strong>Stored Data</strong></h3>
 <input class="form-control" id="myInput" type="text" placeholder="Search..">
+<!-- overflow found here https://www.w3schools.com/howto/howto_css_table_responsive.asp-->
 <div style="overflow-x:auto; overflow-y:auto; height: 600px">
     <h3 style="text-align: center"><strong>Transactions where account is the receiver</strong></h3>
-    <table class="table table-hover" id="MyTable">
+    <table class="table table-hover">
             <thead>
                 <tr>
                     <td style="text-align: center"><h5>Tx Hash</h5></td>
@@ -17,6 +18,7 @@
                 </tr>
             </thead>
             <tbody>
+            <!-- From the flask documentation mentioned in main.py -->
             {% for item in cachedTo %}
                 <tr>
                 {% for key,value in item.items() %}
@@ -76,6 +78,7 @@
 
     </table>
     <script>
+        // Found this example https://www.w3schools.com/bootstrap/bootstrap_filters.asp
         $(document).ready(function(){
           $("#myInput").on("keyup", function() {
             var value = $(this).val().toLowerCase();

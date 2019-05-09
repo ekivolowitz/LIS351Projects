@@ -1,4 +1,4 @@
-##### Returned by an account query.
+##### Returned by an account query. Returned from etherscan.io api. 
 #  'result': [{'blockHash': '0x4570a2e290c3d9d4f18ec64b1f3a7323c4b9d787acbfe63568ba62540999f320',
 #              'blockNumber': '3868472',
 #              'confirmations': '3712917',

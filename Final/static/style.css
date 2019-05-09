@@ -42,34 +42,6 @@ width: 50%;
         visibility: visible;
     }
 }
-
-.line {
-    fill: none;
-    stroke: #ffab00;
-    stroke-width: 3;
-}
-  
-.overlay {
-  fill: none;
-  pointer-events: all;
-}
-
-/* Style the dots by assigning a fill and stroke */
-.dot {
-    fill: #ffab00;
-    stroke: #fff;
-}
-  
-.focus circle {
-  fill: none;
-  stroke: steelblue;
-}
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
 @media screen and (min-width: 601px) {
     .left {
 

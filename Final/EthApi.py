@@ -2,8 +2,12 @@ from secrets import AUTH_TOKEN
 import requests
 from pprint import pprint
 
+# Found http://ethdocs.org/en/latest/ether.html
 WEI_ETH_CONVERSION = 1000000000000000000
 
+# Found how to use the requests library from the requests documentation
+# https://2.python-requests.org/en/master/
+# Documentation on the API is available here: https://etherscan.io/apis
 def getEthPriceUSD():
     request = requests.get("https://api.etherscan.io/api?module=stats&action=ethprice&apikey={}".format(AUTH_TOKEN))
     print(request.json()['result'])

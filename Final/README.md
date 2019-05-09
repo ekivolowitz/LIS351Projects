@@ -44,6 +44,11 @@ In order to run the project, your directory should be structured like so:
 docker build -t flaskapp .
 docker run -it -p 0.0.0.0:5000:5000 flaskapp
 ```
+## Helpful Information
+I suggest looking at `0x8f215bf78d61d45b0d2055dcd60e7c37651ce0ab` for an account address and then following links to get other search fields. 
+Once you have the fields, you can then search them in the search dropdown menu.
 
+Here is the schema fetched from the sqlite3 database: 
+![schema][schema.PNG]
 ## Accessing
 Navigate to your favorite web browser and open `localhost:5000`.

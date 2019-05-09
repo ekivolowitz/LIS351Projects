@@ -13,6 +13,8 @@
     <h3 style="text-align: center">Search for a block with a Block Number</h3>
     {% endif %}
     <script>
+        // cheeky little function to set the url correctly for when a user submits a search
+        // based on what page they were on. 
         function process() {
             var searchType = "{{ searchType }}";
             switch (searchType) {
@@ -20,7 +22,7 @@
                     searchType = "address";
                     break;
                 case "Transaction":
-                    searchType = "tx";
+                    searchType = "transaction";
                     break;
                 case "Block":
                     searchType = "block";
@@ -31,6 +33,7 @@
             return false;
         }
     </script>
+    <!-- found this button and search field here https://mdbootstrap.com/docs/jquery/forms/search/-->
     <form class="form-inline md-form mr-auto mb-4" onSubmit="return process();">
         <input id="searchText" class="form-control mr-sm-2" style="width: 95%" type="text"
             placeholder="{{ searchType }}" aria-label="Search">

@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {% block left_content %}
+<!-- The majority of the HTMl from this project is repetitive. I didn't repeat comments for 
+brevity.
+-->
+<div style="overflow-x:auto; overflow-y:auto; height: 600px">
 <table class="table table-hover">
     <thead>
         <tr>
@@ -22,6 +26,7 @@
                         data-toggle="dropdown">SELECT FIELD
                         <span class="caret"></span></button>
                     <ul class="dropdown-menu">
+                        <!-- I made the href # so that the page wouldn't reload or leave. I use ajax instead.-->
                         <li><a href="#" onclick="setButton('BlockNo', '1'); return false;">BlockNo</a></li>
                         <li><a href="#" onclick="setButton('Index in Block', '1'); return false;">Index in Block</a>
                         </li>
@@ -95,12 +100,37 @@
         </tr>
     </tbody>
 </table>
+
+<h3 style="text-align: center"><strong>Query Results</strong></h3>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td style="text-align: center">
+                <h5>Tx Hash</h5>
+            </td>
+            <td style="text-align: center">
+                <h5>Index in Block</h5>
+            </td>
+            <td style="text-align: center">
+                <h5>Amount</h5>
+            </td>
+        </tr>
+    </thead>
+    <tbody id="table_body">
+    </tbody>
+
+
+
+</table>
+</div>
 <script>
     //https://stackoverflow.com/questions/1070760/javascript-function-in-href-vs-onclick
     function setButton(text, button) {
         document.getElementById("buttonVal" + button).textContent = text;
     }
 
+    // I needed to have a function that would convert from web safe html characters to 
+    // characters sql would understand. 
     function swapOps(op) {
         switch(op) {
             case "&lt;":
@@ -115,7 +145,10 @@
     }
 
     function UpdateTable() {
-        // //make an ajax call and get status value using the same 'id'
+        
+        // Get all of the information from the fields. I use innerHTML for all but the
+        // search bar because the search bar never has any content entered, just typed and 
+        // lingering.
         var field1 = document.getElementById("buttonVal1").innerHTML;
         var operator1 = swapOps(document.getElementById("buttonVal2").innerHTML);
         var value1 = document.getElementById("inputField1").value;
@@ -124,28 +157,40 @@
         var operator2 = swapOps(document.getElementById("buttonVal5").innerHTML);
         var value2 = document.getElementById("inputField2").value;
 
-        // alert(field1 + " " + operator1 + " " + value1 + " " + connector + " " + field2 + " " + operator2 + " " + value2);
+        // Debugging. Very helpful. alert(field1 + " " + operator1 + " " + value1 + " " + connector + " " + field2 + " " + operator2 + " " + value2);
+        // quick check to makesure all the fields are filled in. Reload the page otherwise.
         if(field1.includes("SELECT FIELD") || operator1.includes("Operator") || value1 == "" || connector.includes("Connector") || field2.includes("SELECT FIELD") || operator2.includes("Operator") || value2 == "") {
             alert("Must select all fields.");
             location.reload();
         }
-        console.log(operator1);
+        // picked up how to make an ajax post request from this SO post https://stackoverflow.com/questions/35458984/simple-post-request-with-ajax
         $.ajax({
 
             type: "POST",//or POST
             url: '/getData',
-            //  (or whatever your url is)
             data: { "f1": field1 , "op1" : operator1, "v1" : value1, "con" : connector, "f2" : field2, "op2" : operator2, "v2" : value2},
-            //can send multipledata like {data1:var1,data2:var2,data3:var3
-            //can use dataType:'text/html' or 'json' if response type expected 
+         
             success: function (responsedata) {
-                // process on data
-                console.log("got response as " + "'" + responsedata + "'");
+                // found how to access a table and add to it with js here https://www.w3schools.com/jsref/met_table_insertrow.asp
+                var table_body = document.getElementById("table_body");
+                console.log(responsedata);
+                for(var i = 0; i < responsedata.length; i++) {
+                    var row = table_body.insertRow(i);
+                    var txHashCell = row.insertCell(0);
+                    var blockNoCell = row.insertCell(1);
+                    var amountCell = row.insertCell(2);
+
+                    // formatting to make it consistent with flask loaded info. 
+                    txHashCell.innerHTML = '<a href="/transaction/responsedata[i][2]">' + responsedata[i][2].slice(0, 20) + "...</a>";
+                    blockNoCell.innerHTML = responsedata[i][1];
+                    amountCell.innerHTML = responsedata[i][4];
+                }
             }
         })
 
     }
 </script>
+
 {% endblock %}
 {% block right_content %}
 <div style="overflow-x:auto; overflow-y:auto; height: 600px">

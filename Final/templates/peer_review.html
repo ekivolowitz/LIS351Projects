@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block left_content %}
+    <img class="main_img" src="{{ url_for('static', filename='ETHEREUM-ICON_Black_small.png') }}" style="width: 100%;" alt="Ethereum logo"/>
+{% endblock %}
+{% block right_content %}
+<h1>Peer Review</h1>
+<p>
+    It may come as a shock, but no one reviewed my project.
+    So, I had some of my roommates and friends review my project for me.
+</p>
+<h2>What my friends said</h2>
+<ol>
+    <li>Use $ sign formatting with commas after every three digits on the price page.</li>
+    <li>Have hovering on table rows to help navigate the large tables in my project.</li>
+    <li>Hyperlink the objects that are searchable in my little database.</li>
+    <li>Shorten the sender and receiver addresses in various tables.</li>
+    <li>Have a way for the user to make their own queries.</li>
+</ol>
+
+<h2>Responses to Their Feedback</h2>
+<p>
+    I think that all the suggestions my friends made were great points.
+    All of them except for the querying component were pretty easy to implement, which was a big plus.
+    For querying, I tried two different ways.
+    The first is in the <code>/address/*</code> field where I DO NOT use SQL and simply match
+    based on text and shorten the table.
+    I found the filtering feature on <a href="https://www.w3schools.com/bootstrap/bootstrap_filters.asp">w3schools</a>
+    and really liked how simple and fast it was. 
+    The next form I did, I created the ability for anyone to make their own SQL queries.
+    I hope that this makes up for not having tons of hardcoded queries.
+    That was my favorite part of the project as I found it the most difficult. 
+</p>
+{% endblock %}

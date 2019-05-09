@@ -9,6 +9,7 @@
     {% for date, value in historical.items() %}
         <tr>
             <td style="text-align: center">{{ date }}</td>
+            <!-- Formatting that I found in the flask documentation.-->
             <td style="text-align: center">{{ "${:,.2f}".format(value) }}</td>
         </tr>
     {% endfor %}

@@ -3,18 +3,22 @@
 <html lang="en">
 <head>
     <title>Ethereum</title>
+    <!-- I use these for making my site look fancy - yay bootstrap! -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-          <!-- Latest compiled and minified JavaScript -->
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <!-- Found this nifty trick in the flask documentation http://flask.pocoo.org/docs/1.0/api/ -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 </head>
 
 <body>
     <section id="header">
         <h1>Ethereum</h1>
+        <!-- I found the table layout on this page: https://getbootstrap.com/docs/4.3/content/tables/ 
+            which I use throughout the project. 
+        -->
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -28,8 +32,8 @@
                     </button>
                     <a class="navbar-brand" href="/">Home</span></a>
                 </div>
-        
-                <!-- Collect the nav links, forms, and other content for toggling -->
+                
+                <!-- I found how to make the navbar here: https://getbootstrap.com/docs/4.0/components/navbar/ -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a href="/price">Price</a></li>
@@ -46,10 +50,11 @@
                                 </li>
                             </ul>
                         </li>
+                        <li><a href="/peer">Peer Review</a></li>
                     </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
+                </div>
+            </div>
+          </nav>
       </section>
 
     <section id="main">
